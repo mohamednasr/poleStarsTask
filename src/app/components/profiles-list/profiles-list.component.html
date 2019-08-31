@@ -1,0 +1,19 @@
+<div class="row">
+  <app-filters class="col-md-12" (filterBy)="filter($event)"></app-filters>
+</div>
+<hr>
+<div class="row justify-content-end mb-2">
+  <div class="col-md-2">
+    <label>Sort By</label>
+    <select name="sortBy" id="sortBy" class="form-control" [ngModel]="sortType" (ngModelChange)='sortData($event)'>
+      <option [value]="t.value" *ngFor="let t of sortTypes">{{t.name}}</option>
+    </select>
+  </div>
+</div>
+<div class="row profiles-list" #profilesList>
+  <app-profile-summary class="col-md-6" [profile]="profile" *ngFor='let profile of profiles'>
+  </app-profile-summary>
+  <div class="text-center col-sm-12 p-5" *ngIf="profiles.length <= 0">
+    <h3>No Profiles Found</h3>
+  </div>
+</div>

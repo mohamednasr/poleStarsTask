@@ -1,0 +1,7 @@
+export enum severity{
+    UNKNOWN = '30-UNKNOWN',
+    OK = '60-OK',
+    WARNING = '70-WARNING',
+    CRITICAL_ACKNOWLEDGED = '80-CRITICAL_ACKNOWLEDGED',
+    CRITICAL = '90-CRITICAL'
+}

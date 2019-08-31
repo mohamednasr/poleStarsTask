@@ -1,0 +1,10 @@
+<div class="border rounded col pt-2 pb-2 mt-2">
+  <h5><a class="mb-2 title" [routerLink]='profile.id'>{{profile.name}}</a></h5>
+  <h6 class="text-muted">Created at: <span>{{profile.created | date: 'MMM dd,yyyy hh:mm a'}}</span></h6>
+  <h6 class="text-muted">Modified at: <span>{{profile.modified | date: 'MMM dd,yyyy hh:mm a'}}</span></h6>
+  <span  [class]="'badge ' + ( profile.country_check_severity == severityTypesEnum.OK ? 'badge-success' : 
+                               profile.country_check_severity == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                               profile.country_check_severity == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profile.country_check_severity}}
+  </span>
+</div>

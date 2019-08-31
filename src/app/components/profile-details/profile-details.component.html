@@ -1,0 +1,291 @@
+<h4 class="mt-2">{{profileDetails.name}}</h4>
+<h6 class="text-muted">Created at: <span>{{profileDetails.created | date: 'MMM dd,yyyy hh:mm a'}}</span></h6>
+<h6 class="text-muted">Modified at: <span>{{profileDetails.modified | date: 'MMM dd,yyyy hh:mm a'}}</span></h6>
+<h6 class="text-capitalize" *ngIf="profileDetails.country_check_severity != null">
+  country check severity:
+  <span
+    [class]="'badge ' + ( profileDetails.country_check_severity == severityTypesEnum.OK ? 'badge-success' : 
+                              profileDetails.country_check_severity == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                              profileDetails.country_check_severity == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">{{profileDetails.country_check_severity}}</span>
+</h6>
+<h6 class="text-capitalize mt-2">Company BlackLists: <a (click)="companyBlackList(profileDetails.id)">View
+    List</a></h6>
+<h6 class="text-capitalize mt-2">port BlackLists: <a (click)="portBlackList(profileDetails.id)">View List</a>
+</h6>
+<h6 class="text-capitalize mt-2">country BlackLists: <a (click)="countryBlackList(profileDetails.id)">View
+    List</a></h6>
+<h6 class="text-capitalize mt-2">ship BlackLists: <a (click)="shipBlackList(profileDetails.id)">View List</a>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_prior_months != null">company check prior months: <b>{{profileDetails.company_check_prior_months}}</b></h6>
+<h6 class="text-capitalize" *ngIf="profileDetails.ship_sanction_prior_months != null">ship sanction prior months: <b>{{profileDetails.ship_sanction_prior_months}}</b></h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_prior_months_severity != null">
+    company check prior months severity:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_prior_months_severity == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_prior_months_severity == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_prior_months_severity == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_prior_months_severity}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity != null">
+  company check severity:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity_technical_manager != null">
+    company check severity technical manager:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity_technical_manager == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity_technical_manager == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity_technical_manager == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity_technical_manager}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity_technical_manager_sdn != null">
+    company check severity technical manager SDN:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity_technical_manager_sdn == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity_technical_manager_sdn == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity_technical_manager_sdn == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity_technical_manager_sdn}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity_technical_manager_generic != null">
+    company check severity technical manager generic:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity_technical_manager_generic == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity_technical_manager_generic == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity_technical_manager_generic == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity_technical_manager_generic}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity_group_beneficial_owner != null">
+    company check severity group beneficial owner:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity_group_beneficial_owner == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity_group_beneficial_owner == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity_group_beneficial_owner == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity_group_beneficial_owner}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity_group_beneficial_owner_sdn != null">
+    company check severity group beneficial owner SDN:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity_group_beneficial_owner_sdn == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity_group_beneficial_owner_sdn == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity_group_beneficial_owner_sdn == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity_group_beneficial_owner_sdn}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity_group_beneficial_owner_generic != null">
+    company check severity group beneficial owner generic:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity_group_beneficial_owner_generic == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity_group_beneficial_owner_generic == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity_group_beneficial_owner_generic == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity_group_beneficial_owner_generic}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity_ship_manager != null">
+    company check severity ship manager:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity_ship_manager == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity_ship_manager == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity_ship_manager == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity_ship_manager}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity_ship_manager_sdn != null">
+    company check severity ship manager SDN:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity_ship_manager_sdn == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity_ship_manager_sdn == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity_ship_manager_sdn == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity_ship_manager_sdn}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity_ship_manager_generic != null">
+    company check severity ship manager generic:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity_ship_manager_generic == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity_ship_manager_generic == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity_ship_manager_generic == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity_ship_manager_generic}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity_operator != null">
+    company check severity operator:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity_operator == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity_operator == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity_operator == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity_operator}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity_operator_sdn != null">
+    company check severity operator SDN:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity_operator_sdn == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity_operator_sdn == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity_operator_sdn == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity_operator_sdn}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity_operator_generic != null">
+    company check severity operator generic:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity_operator_generic == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity_operator_generic == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity_operator_generic == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity_operator_generic}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity_registered_owner != null">
+    company check severity registered owner:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity_registered_owner == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity_registered_owner == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity_registered_owner == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity_registered_owner}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity_registered_owner_sdn != null">
+    company check severity registered owner SDN:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity_registered_owner_sdn == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity_registered_owner_sdn == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity_registered_owner_sdn == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity_registered_owner_sdn}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.company_check_severity_registered_owner_generic != null">
+    company check severity registered owner generic:
+  <span
+    [class]="'badge ' + ( profileDetails.company_check_severity_registered_owner_generic == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.company_check_severity_registered_owner_generic == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.company_check_severity_registered_owner_generic == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.company_check_severity_registered_owner_generic}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.country_check_unknown_severity != null">
+    company check unknown severity:
+  <span
+    [class]="'badge ' + ( profileDetails.country_check_unknown_severity == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.country_check_unknown_severity == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.country_check_unknown_severity == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.country_check_unknown_severity}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.ship_sanction_check_severity != null">
+    ship sanction check severity:
+  <span
+    [class]="'badge ' + ( profileDetails.ship_sanction_check_severity == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.ship_sanction_check_severity == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.ship_sanction_check_severity == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.ship_sanction_check_severity}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.ship_sanction_check_severity_sdn != null">
+    ship sanction check severity SDN:
+  <span
+    [class]="'badge ' + ( profileDetails.ship_sanction_check_severity_sdn == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.ship_sanction_check_severity_sdn == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.ship_sanction_check_severity_sdn == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.ship_sanction_check_severity_sdn}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.ship_sanction_check_severity_generic != null">
+    ship sanction check severity generic:
+  <span
+    [class]="'badge ' + ( profileDetails.ship_sanction_check_severity_generic == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.ship_sanction_check_severity_generic == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.ship_sanction_check_severity_generic == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.ship_sanction_check_severity_generic}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.ship_sanction_prior_months_severity != null">
+    ship sanction prior months severity:
+  <span
+    [class]="'badge ' + ( profileDetails.ship_sanction_prior_months_severity == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.ship_sanction_prior_months_severity == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.ship_sanction_prior_months_severity == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.ship_sanction_prior_months_severity}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.port_visit_severity != null">
+  port check severity:
+  <span
+    [class]="'badge ' + ( profileDetails.port_visit_severity == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.port_visit_severity == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.port_visit_severity == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.port_visit_severity}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.no_ais_position_severity != null">
+    No ais position severity:
+  <span
+    [class]="'badge ' + ( profileDetails.no_ais_position_severity == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.no_ais_position_severity == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.no_ais_position_severity == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.no_ais_position_severity}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.zone_severity != null">
+  zone severity:
+  <span
+    [class]="'badge ' + ( profileDetails.zone_severity == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.zone_severity == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.zone_severity == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.zone_severity}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.ship_inspection_detained != null">
+    ship inspection detained:
+  <span
+    [class]="'badge ' + ( profileDetails.ship_inspection_detained == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.ship_inspection_detained == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.ship_inspection_detained == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.ship_inspection_detained}}
+  </span>
+</h6>
+
+<h6 class="text-capitalize" *ngIf="profileDetails.ship_inspection_deficiency != null">
+    ship inspection deficiency:
+  <span
+    [class]="'badge ' + ( profileDetails.ship_inspection_deficiency == severityTypesEnum.OK ? 'badge-success' : 
+                                profileDetails.ship_inspection_deficiency == severityTypesEnum.CRITICAL ? 'badge-danger' : 
+                                profileDetails.ship_inspection_deficiency == severityTypesEnum.WARNING ? 'badge-warning' :'badge-dark')">
+    {{profileDetails.ship_inspection_deficiency}}
+  </span>
+</h6>
